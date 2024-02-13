@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  adventure-sql:
+  mssql:
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
       - ACCEPT_EULA=Y
@@ -11,9 +11,9 @@ services:
     volumes:
       - shared-data:/var/opt/mssql/backup
 
-  adventure-works:
+  testdbs:
     depends_on:
-        - adventure-sql
+        - mssql
     build:
       context: .
       dockerfile: ./Support/mssql.dockerfile
