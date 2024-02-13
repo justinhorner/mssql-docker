@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  adventure-sql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - 'SA_PASSWORD=PokBs77i%sBt'
+    ports:
+      - 1433:1433
+    volumes:
+      - shared-data:/var/opt/mssql/backup
+
+  adventure-works:
+    depends_on:
+        - adventure-sql
+    build:
+      context: .
+      dockerfile: ./Support/mssql.dockerfile
+    environment:
+      - 'SA_PASSWORD=PokBs77i%sBt'
+    command: /app/init.sh
+    volumes:
+      - shared-data:/var/opt/mssql/backup
+    
+volumes:
+  shared-data:
