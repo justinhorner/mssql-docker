@@ -5,7 +5,7 @@ services:
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
       - ACCEPT_EULA=Y
-      - 'SA_PASSWORD=PokBs77i%sBt'
+      - 'SA_PASSWORD=YourSecretPa$$W0rD'
     ports:
       - 1433:1433
     volumes:
@@ -18,7 +18,7 @@ services:
       context: .
       dockerfile: ./Support/mssql.dockerfile
     environment:
-      - 'SA_PASSWORD=PokBs77i%sBt'
+      - 'SA_PASSWORD=YourSecretPa$$W0rD'
     command: /app/init.sh
     volumes:
       - shared-data:/var/opt/mssql/backup

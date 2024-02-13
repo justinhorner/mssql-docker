@@ -10,9 +10,10 @@ This is a repo I created to run an (docker) instance of Microsoft SQL Server for
 ## Installation
 
 1. Pull the repo
-2. Make the pre-init.sh script executable, `chmod +x pre-init.sh`
-2. Run the pre-init.sh script to download the backup file(s), `./pre-init.sh`
-3. Run `docker-compose up` in the local directory to create and spin up the container.  Assuming there are no errors, and you see `exited with code 0` you can re-run `docker-compose up -d` to start the container silently.
+2. Edit the docker-compose.yaml file to change the default SA_PASSWORD value, `YourSecretPa$$W0rD`
+3. Make the pre-init.sh script executable, `chmod +x pre-init.sh`
+4. Run the pre-init.sh script to download the backup file(s), `./pre-init.sh`
+5. Run `docker-compose up` in the local directory to create and spin up the container.  Assuming there are no errors, and you see `exited with code 0` you can re-run `docker-compose up -d` to start the container silently.
 
 
 ## Sources
